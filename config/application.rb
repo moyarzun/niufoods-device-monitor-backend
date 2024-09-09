@@ -46,5 +46,8 @@ module NiufoodsDeviceMonitorBackend
                  methods: %i[get post put patch delete options head]
       end
     end
+
+    # Configurar Sidekiq como adaptador de cola para Active Job
+    config.active_job.queue_adapter = :sidekiq
   end
 end
