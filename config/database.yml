@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  timeout: 5000
+
+development:
+  <<: *default
+  database: niufoods_monitor_development
+
+test:
+  <<: *default
+  database: niufoods_monitor_test
+
+production:
+  <<: *default
+  database: niufoods_monitor

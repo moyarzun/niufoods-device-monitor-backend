@@ -1,0 +1,424 @@
+Started GET "/" for ::1 at 2024-09-08 22:01:44 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/moyarzun/.rbenv/versions/2.7.7/lib/ruby/gems/2.7.0/gems/railties-6.1.7.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/moyarzun/.rbenv/versions/2.7.7/lib/ruby/gems/2.7.0/gems/railties-6.1.7.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.6ms | Allocations: 407)
+Completed 200 OK in 11ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 3485)
+
+
+  [1m[35m (177.3ms)[0m  [1m[35mCREATE DATABASE "niufoods_monitor_development" ENCODING = 'unicode'[0m
+  [1m[35m (66.6ms)[0m  [1m[35mCREATE DATABASE "niufoods_monitor_test" ENCODING = 'unicode'[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3903564108141635175)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLocations (20240909021441)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "locations" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240909021441"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDevices (20240909021506)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3903564108141635175)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3903564108141635175)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDevices (20240909021506)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.1ms)[0m  [1m[35mCREATE TABLE "devices" ("id" bigserial primary key, "location_id_id" bigint, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_devices_on_location_id_id" ON "devices" ("location_id_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240909021506"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStates (20240909021533)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "states" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240909021533"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStatusLogs (20240909021958)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(3903564108141635175)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE DATABASE "niufoods_monitor_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE "niufoods_monitor_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-09-09 02:25:43.540748"], ["updated_at", "2024-09-09 02:25:43.540748"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3903564108141635175)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStatusLogs (20240909021958)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "status_logs" ("id" bigserial primary key, "device_id_id" bigint, "status_id_id" bigint, "reported_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_status_logs_on_device_id_id" ON "status_logs" ("device_id_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_status_logs_on_status_id_id" ON "status_logs" ("status_id_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240909021958"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3903564108141635175)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocation Create (1.4ms)[0m  [1m[32mINSERT INTO "locations" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "NIU Sushi Pedro Fontova"], ["created_at", "2024-09-09 02:31:12.288057"], ["updated_at", "2024-09-09 02:31:12.288057"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3903564108141635175)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3903564108141635175)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocation Create (0.7ms)[0m  [1m[32mINSERT INTO "locations" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "NIU Sushi Pedro Fontova"], ["created_at", "2024-09-09 02:32:12.900858"], ["updated_at", "2024-09-09 02:32:12.900858"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mLocation Load (22.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocation Destroy (1.6ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocation Destroy (1.0ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = $1[0m  [["id", 2]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocation Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."name" = $1 LIMIT $2[0m  [["name", "NIU Sushi Pedro Fontova"], ["LIMIT", 1]]
+  [1m[36mLocation Create (0.3ms)[0m  [1m[32mINSERT INTO "locations" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "NIU Sushi Pedro Fontova"], ["created_at", "2024-09-09 02:41:00.179916"], ["updated_at", "2024-09-09 02:41:00.179916"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocation Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."name" = $1 LIMIT $2[0m  [["name", "NIU Sushi Pedro Fontova"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "devices" WHERE "devices"."name" = $1 LIMIT $2[0m  [["name", "Caja Registradora 1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (44.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "niufoods_monitor_development"[0m
+  [1m[35m (28.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "niufoods_monitor_test"[0m
+  [1m[35m (132.0ms)[0m  [1m[35mCREATE DATABASE "niufoods_monitor_development" ENCODING = 'unicode'[0m
+  [1m[35m (42.1ms)[0m  [1m[35mCREATE DATABASE "niufoods_monitor_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "devices" CASCADE[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "devices" ("id" bigserial primary key, "location_id_id" bigint, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_devices_on_location_id_id" ON "devices" ("location_id_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "locations" CASCADE[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "locations" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "states" CASCADE[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "states" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "status_logs" CASCADE[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "status_logs" ("id" bigserial primary key, "device_id_id" bigint, "status_id_id" bigint, "reported_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_status_logs_on_device_id_id" ON "status_logs" ("device_id_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_status_logs_on_status_id_id" ON "status_logs" ("status_id_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240909021958)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20240909021441),
+(20240909021506),
+(20240909021533);
+
+[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-09-09 02:43:53.300511"], ["updated_at", "2024-09-09 02:43:53.300511"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "cfec4c041c859b283616baa4b9c4bbd7511615fc"], ["created_at", "2024-09-09 02:43:53.303446"], ["updated_at", "2024-09-09 02:43:53.303446"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "devices" CASCADE[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "devices" ("id" bigserial primary key, "location_id_id" bigint, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_devices_on_location_id_id" ON "devices" ("location_id_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "locations" CASCADE[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "locations" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "states" CASCADE[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "states" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "status_logs" CASCADE[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "status_logs" ("id" bigserial primary key, "device_id_id" bigint, "status_id_id" bigint, "reported_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_status_logs_on_device_id_id" ON "status_logs" ("device_id_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_status_logs_on_status_id_id" ON "status_logs" ("status_id_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240909021958)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20240909021441),
+(20240909021506),
+(20240909021533);
+
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-09-09 02:43:53.330883"], ["updated_at", "2024-09-09 02:43:53.330883"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.1ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2024-09-09 02:43:53.332981"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "cfec4c041c859b283616baa4b9c4bbd7511615fc"], ["created_at", "2024-09-09 02:43:53.334826"], ["updated_at", "2024-09-09 02:43:53.334826"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3903564108141635175)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3903564108141635175)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3903564108141635175)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3903564108141635175)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (38.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "niufoods_monitor_development"[0m
+  [1m[35m (22.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "niufoods_monitor_test"[0m
+  [1m[35m (61.2ms)[0m  [1m[35mCREATE DATABASE "niufoods_monitor_development" ENCODING = 'unicode'[0m
+  [1m[35m (38.4ms)[0m  [1m[35mCREATE DATABASE "niufoods_monitor_test" ENCODING = 'unicode'[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3903564108141635175)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLocations (20240909021441)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "locations" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240909021441"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDevices (20240909021506)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "devices" ("id" bigserial primary key, "location_id" bigint, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_devices_on_location_id" ON "devices" ("location_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240909021506"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStates (20240909021533)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "states" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240909021533"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStatusLogs (20240909021958)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "status_logs" ("id" bigserial primary key, "device_id" bigint, "status_id" bigint, "reported_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_status_logs_on_device_id" ON "status_logs" ("device_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_status_logs_on_status_id" ON "status_logs" ("status_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240909021958"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-09-09 02:44:50.847499"], ["updated_at", "2024-09-09 02:44:50.847499"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3903564108141635175)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Exists? (3.7ms)[0m  [1m[34mSELECT 1 AS one FROM "devices" WHERE "devices"."name" = $1 LIMIT $2[0m  [["name", "Caja Registradora 1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "devices" WHERE "devices"."name" = $1 LIMIT $2[0m  [["name", "Caja Registradora 1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocation Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."name" = $1 LIMIT $2[0m  [["name", "NIU Sushi Pedro Fontova"], ["LIMIT", 1]]
+  [1m[36mLocation Create (0.8ms)[0m  [1m[32mINSERT INTO "locations" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "NIU Sushi Pedro Fontova"], ["created_at", "2024-09-09 02:45:22.370791"], ["updated_at", "2024-09-09 02:45:22.370791"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "devices" WHERE "devices"."name" = $1 LIMIT $2[0m  [["name", "Caja Registradora 1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mDevice Load (0.4ms)[0m  [1m[34mSELECT "devices".* FROM "devices" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "devices" WHERE "devices"."name" = $1 LIMIT $2[0m  [["name", "Caja Registradora 1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mDevice Load (0.9ms)[0m  [1m[34mSELECT "devices".* FROM "devices" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "OK"], ["LIMIT", 1]]
+  [1m[36mState Create (0.8ms)[0m  [1m[32mINSERT INTO "states" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "OK"], ["created_at", "2024-09-09 02:46:36.275978"], ["updated_at", "2024-09-09 02:46:36.275978"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Offline"], ["LIMIT", 1]]
+  [1m[36mState Create (0.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Offline"], ["created_at", "2024-09-09 02:46:48.939477"], ["updated_at", "2024-09-09 02:46:48.939477"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Maintenance"], ["LIMIT", 1]]
+  [1m[36mState Create (0.6ms)[0m  [1m[32mINSERT INTO "states" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Maintenance"], ["created_at", "2024-09-09 02:48:20.074747"], ["updated_at", "2024-09-09 02:48:20.074747"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 LIMIT $2[0m  [["name", "Error"], ["LIMIT", 1]]
+  [1m[36mState Create (0.4ms)[0m  [1m[32mINSERT INTO "states" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Error"], ["created_at", "2024-09-09 02:48:31.861306"], ["updated_at", "2024-09-09 02:48:31.861306"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDevice Load (0.5ms)[0m  [1m[34mSELECT "devices".* FROM "devices" ORDER BY "devices"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" ORDER BY "locations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" ORDER BY "locations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDevice Load (0.9ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."location_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["location_id", 1], ["LIMIT", 11]]
+  [1m[36mDevice Load (0.9ms)[0m  [1m[34mSELECT "devices".* FROM "devices" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mStatusLog Load (2.9ms)[0m  [1m[34mSELECT "status_logs".* FROM "status_logs" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "devices" WHERE "devices"."name" = $1 LIMIT $2[0m  [["name", "Caja Registradora 1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "devices" WHERE "devices"."name" = $1 LIMIT $2[0m  [["name", "Caja Registradora 1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "devices" WHERE "devices"."name" = $1 LIMIT $2[0m  [["name", "Caja Registradora 1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "devices" WHERE "devices"."name" = $1 LIMIT $2[0m  [["name", "Caja Registradora 1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "devices" WHERE "devices"."name" = $1 LIMIT $2[0m  [["name", "Caja Registradora 1"], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Create (1.7ms)[0m  [1m[32mINSERT INTO "devices" ("location_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["location_id", 1], ["name", "Caja Registradora 1"], ["created_at", "2024-09-09 02:56:19.317426"], ["updated_at", "2024-09-09 02:56:19.317426"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mState Load (1.3ms)[0m  [1m[34mSELECT "states".* FROM "states" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Load (0.3ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Load (0.6ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Load (0.8ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Load (1.2ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3903564108141635175)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3903564108141635175)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Load (1.5ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (38.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "niufoods_monitor_development"[0m
+  [1m[35m (26.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "niufoods_monitor_test"[0m
+  [1m[35m (125.4ms)[0m  [1m[35mCREATE DATABASE "niufoods_monitor_development" ENCODING = 'unicode'[0m
+  [1m[35m (45.7ms)[0m  [1m[35mCREATE DATABASE "niufoods_monitor_test" ENCODING = 'unicode'[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3903564108141635175)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLocations (20240909021441)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "locations" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240909021441"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDevices (20240909021506)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "devices" ("id" bigserial primary key, "location_id" bigint, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_devices_on_location_id" ON "devices" ("location_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240909021506"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStatus (20240909021533)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3903564108141635175)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3903564108141635175)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStatus (20240909021533)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "status" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240909021533"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStatusLogs (20240909021958)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "status_logs" ("id" bigserial primary key, "device_id" bigint, "status_id" bigint, "reported_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_status_logs_on_device_id" ON "status_logs" ("device_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_status_logs_on_status_id" ON "status_logs" ("status_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240909021958"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-09-09 03:04:14.025918"], ["updated_at", "2024-09-09 03:04:14.025918"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3903564108141635175)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocation Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "locations" WHERE "locations"."name" = $1 LIMIT $2[0m  [["name", "NIU Sushi Pedro Fontova"], ["LIMIT", 1]]
+  [1m[36mLocation Create (0.8ms)[0m  [1m[32mINSERT INTO "locations" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "NIU Sushi Pedro Fontova"], ["created_at", "2024-09-09 03:04:41.440185"], ["updated_at", "2024-09-09 03:04:41.440185"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "devices" WHERE "devices"."name" = $1 LIMIT $2[0m  [["name", "Caja Registradora 1"], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Create (1.2ms)[0m  [1m[32mINSERT INTO "devices" ("location_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["location_id", 1], ["name", "Caja Registradora 1"], ["created_at", "2024-09-09 03:04:48.930396"], ["updated_at", "2024-09-09 03:04:48.930396"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStatus Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "status" WHERE "status"."name" = $1 LIMIT $2[0m  [["name", "Ok"], ["LIMIT", 1]]
+  [1m[36mStatus Create (1.0ms)[0m  [1m[32mINSERT INTO "status" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ok"], ["created_at", "2024-09-09 03:05:28.073155"], ["updated_at", "2024-09-09 03:05:28.073155"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStatus Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "status" WHERE "status"."name" = $1 LIMIT $2[0m  [["name", "Offline"], ["LIMIT", 1]]
+  [1m[36mStatus Create (0.4ms)[0m  [1m[32mINSERT INTO "status" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Offline"], ["created_at", "2024-09-09 03:05:33.305032"], ["updated_at", "2024-09-09 03:05:33.305032"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStatus Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "status" WHERE "status"."name" = $1 LIMIT $2[0m  [["name", "Error"], ["LIMIT", 1]]
+  [1m[36mStatus Create (0.4ms)[0m  [1m[32mINSERT INTO "status" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Error"], ["created_at", "2024-09-09 03:05:37.237139"], ["updated_at", "2024-09-09 03:05:37.237139"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStatus Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "status" WHERE "status"."name" = $1 LIMIT $2[0m  [["name", "Maintenance"], ["LIMIT", 1]]
+  [1m[36mStatus Create (0.3ms)[0m  [1m[32mINSERT INTO "status" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Maintenance"], ["created_at", "2024-09-09 03:05:43.293112"], ["updated_at", "2024-09-09 03:05:43.293112"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Load (0.2ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStatus Load (0.2ms)[0m  [1m[34mSELECT "status".* FROM "status" WHERE "status"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStatusLog Create (2.2ms)[0m  [1m[32mINSERT INTO "status_logs" ("device_id", "status_id", "reported_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["device_id", 1], ["status_id", 2], ["reported_at", "2024-09-09 03:05:57.896804"], ["created_at", "2024-09-09 03:05:57.908361"], ["updated_at", "2024-09-09 03:05:57.908361"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Load (0.3ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStatus Load (0.2ms)[0m  [1m[34mSELECT "status".* FROM "status" WHERE "status"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStatusLog Create (0.3ms)[0m  [1m[32mINSERT INTO "status_logs" ("device_id", "status_id", "reported_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["device_id", 1], ["status_id", 1], ["reported_at", "2024-09-09 03:06:06.056636"], ["created_at", "2024-09-09 03:06:06.058757"], ["updated_at", "2024-09-09 03:06:06.058757"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Load (0.7ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStatus Load (0.3ms)[0m  [1m[34mSELECT "status".* FROM "status" WHERE "status"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mStatusLog Create (0.7ms)[0m  [1m[32mINSERT INTO "status_logs" ("device_id", "status_id", "reported_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["device_id", 1], ["status_id", 3], ["reported_at", "2024-09-09 03:06:11.148968"], ["created_at", "2024-09-09 03:06:11.152994"], ["updated_at", "2024-09-09 03:06:11.152994"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Load (0.6ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStatus Load (0.2ms)[0m  [1m[34mSELECT "status".* FROM "status" WHERE "status"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mStatusLog Create (0.6ms)[0m  [1m[32mINSERT INTO "status_logs" ("device_id", "status_id", "reported_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["device_id", 1], ["status_id", 4], ["reported_at", "2024-09-09 03:06:15.467731"], ["created_at", "2024-09-09 03:06:15.471240"], ["updated_at", "2024-09-09 03:06:15.471240"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDevice Load (0.6ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStatus Load (0.2ms)[0m  [1m[34mSELECT "status".* FROM "status" WHERE "status"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStatusLog Create (0.5ms)[0m  [1m[32mINSERT INTO "status_logs" ("device_id", "status_id", "reported_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["device_id", 1], ["status_id", 1], ["reported_at", "2024-09-09 03:06:20.933117"], ["created_at", "2024-09-09 03:06:20.936710"], ["updated_at", "2024-09-09 03:06:20.936710"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDevice Load (0.6ms)[0m  [1m[34mSELECT "devices".* FROM "devices" ORDER BY "devices"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDevice Load (1.1ms)[0m  [1m[34mSELECT "devices".* FROM "devices" ORDER BY "devices"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices" ORDER BY "devices"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices" ORDER BY "devices"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDevice Load (0.8ms)[0m  [1m[34mSELECT "devices".* FROM "devices" ORDER BY "devices"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDevice Load (1.0ms)[0m  [1m[34mSELECT "devices".* FROM "devices" ORDER BY "devices"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDevice Load (0.3ms)[0m  [1m[34mSELECT "devices".* FROM "devices" ORDER BY "devices"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDevice Load (1.5ms)[0m  [1m[34mSELECT "devices".* FROM "devices" ORDER BY "devices"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mStatusLog Load (1.5ms)[0m  [1m[34mSELECT "status_logs".* FROM "status_logs" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mStatusLog Load (0.6ms)[0m  [1m[34mSELECT "status_logs".* FROM "status_logs" ORDER BY "status_logs"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mStatusLog Load (0.5ms)[0m  [1m[34mSELECT "status_logs".* FROM "status_logs" ORDER BY "status_logs"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDevice Load (0.2ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStatusLog Load (1.2ms)[0m  [1m[34mSELECT "status_logs".* FROM "status_logs" ORDER BY "status_logs"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDevice Load (0.3ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStatusLog Load (0.9ms)[0m  [1m[34mSELECT "status_logs".* FROM "status_logs" ORDER BY "status_logs"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDevice Load (0.3ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStatusLog Load (0.3ms)[0m  [1m[34mSELECT "status_logs".* FROM "status_logs" WHERE "status_logs"."device_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["device_id", 1], ["LIMIT", 11]]
+  [1m[36mStatusLog Load (1.1ms)[0m  [1m[34mSELECT "status_logs".* FROM "status_logs" ORDER BY "status_logs"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDevice Load (0.3ms)[0m  [1m[34mSELECT "devices".* FROM "devices" WHERE "devices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStatusLog Load (0.5ms)[0m  [1m[34mSELECT "status_logs".* FROM "status_logs" WHERE "status_logs"."device_id" = $1 ORDER BY "status_logs"."id" DESC LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Load (0.5ms)[0m  [1m[34mSELECT "devices".* FROM "devices" ORDER BY "devices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDevice Load (1.8ms)[0m  [1m[34mSELECT "devices".* FROM "devices" ORDER BY "devices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mStatusLog Load (0.4ms)[0m  [1m[34mSELECT "status_logs".* FROM "status_logs" WHERE "status_logs"."device_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["device_id", 1], ["LIMIT", 11]]
+  [1m[36mDevice Load (0.9ms)[0m  [1m[34mSELECT "devices".* FROM "devices" ORDER BY "devices"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mStatusLog Load (0.6ms)[0m  [1m[34mSELECT "status_logs".* FROM "status_logs" WHERE "status_logs"."device_id" = $1 ORDER BY "status_logs"."id" DESC LIMIT $2[0m  [["device_id", 1], ["LIMIT", 1]]
