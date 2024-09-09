@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   namespace :api do
     namespace :v1 do
-      resources :states
+      resources :status
     end
   end
   namespace :api do

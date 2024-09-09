@@ -1,9 +1,9 @@
 class Api::V1::DevicesController < ApplicationController
-  before_action :set_api_v1_device, only: [:show, :update, :destroy]
+  before_action :set_api_v1_device, only: %i[show update destroy]
 
   # GET /api/v1/devices
   def index
-    @api_v1_devices = Api::V1::Device.all
+    @api_v1_devices = Device.all
 
     render json: @api_v1_devices
   end
@@ -15,7 +15,7 @@ class Api::V1::DevicesController < ApplicationController
 
   # POST /api/v1/devices
   def create
-    @api_v1_device = Api::V1::Device.new(api_v1_device_params)
+    @api_v1_device = Device.new(api_v1_device_params)
 
     if @api_v1_device.save
       render json: @api_v1_device, status: :created, location: @api_v1_device
@@ -39,13 +39,14 @@ class Api::V1::DevicesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_api_v1_device
-      @api_v1_device = Api::V1::Device.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def api_v1_device_params
-      params.fetch(:api_v1_device, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_api_v1_device
+    @api_v1_device = Device.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def api_v1_device_params
+    params.fetch(:api_v1_device, {})
+  end
 end

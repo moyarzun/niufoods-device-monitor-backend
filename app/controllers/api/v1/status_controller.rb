@@ -3,7 +3,7 @@ class Api::V1::StatusController < ApplicationController
 
   # GET /api/v1/status
   def index
-    @api_v1_status = Api::V1.status.all
+    @api_v1_status = Status.all
 
     render json: @api_v1_status
   end
@@ -15,7 +15,7 @@ class Api::V1::StatusController < ApplicationController
 
   # POST /api/v1/status
   def create
-    @api_v1_status = Api::V1.status.new(api_v1_status_params)
+    @api_v1_status = Status.new(api_v1_status_params)
 
     if @api_v1_status.save
       render json: @api_v1_status, status: :created, location: @api_v1_status
@@ -42,7 +42,7 @@ class Api::V1::StatusController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_api_v1_status
-    @api_v1_status = Api::V1.status.find(params[:id])
+    @api_v1_status = Status.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
