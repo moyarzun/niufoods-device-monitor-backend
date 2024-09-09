@@ -10,7 +10,28 @@ class Api::V1::StatusLogsController < ApplicationController
 
   # GET /api/v1/status_logs/1
   def show
-    render json: @status_log
+    @status_log = StatusLog.joins(:status)
+                           .select('status_logs.id, status_logs.reported_at, status.name as status')
+                           .find(params[:id])
+
+    render json: {
+      id: @status_log.id,
+      reported_at: @status_log.reported_at.in_time_zone.strftime('%Y-%m-%d %H:%M:%S'),
+      status: @status_log.status
+    }
+  end
+
+  # GET /api/v1/devices/:id/status_logs
+  def by_device
+    @status_logs = StatusLog.joins(:status)
+                            .select('status_logs.id, status_logs.reported_at, status.name as status_name')
+                            .where(device_id: params[:id])
+
+    render json: @status_logs.map { |log|
+                   { id: log.id,
+                     reported_at: log.reported_at.in_time_zone.strftime('%Y-%m-%d %H:%M:%S'),
+                     status: log.status_name }
+                 }
   end
 
   # POST /api/v1/status_logs

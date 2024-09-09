@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :status_logs, only: %i[index show create]
+      get 'devices/:id/status_logs', to: 'status_logs#by_device'
     end
   end
   namespace :api do
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :devices, only: %i[index show create update]
+      get 'locations/:id/devices', to: 'devices#by_location'
     end
   end
   namespace :api do
