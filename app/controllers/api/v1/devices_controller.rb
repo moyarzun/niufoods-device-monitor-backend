@@ -33,7 +33,7 @@ class Api::V1::DevicesController < ApplicationController
     @device = Device.new(device_params)
 
     if @device.save
-      render json: @device, status: :created, location: @device
+      render json: @device, status: :created
     else
       render json: @device.errors, status: :unprocessable_entity
     end
