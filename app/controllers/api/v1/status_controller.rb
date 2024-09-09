@@ -1,52 +1,52 @@
 class Api::V1::StatusController < ApplicationController
-  before_action :set_api_v1_status, only: %i[show update destroy]
+  before_action :set_status, only: %i[show update destroy]
 
   # GET /api/v1/status
   def index
-    @api_v1_status = Status.all
+    @status = Status.all
 
-    render json: @api_v1_status
+    render json: @status
   end
 
   # GET /api/v1/status/1
   def show
-    render json: @api_v1_status
+    render json: @status
   end
 
   # POST /api/v1/status
   def create
-    @api_v1_status = Status.new(api_v1_status_params)
+    @status = Status.new(status_params)
 
-    if @api_v1_status.save
-      render json: @api_v1_status, status: :created, location: @api_v1_status
+    if @status.save
+      render json: @status, status: :created, location: @status
     else
-      render json: @api_v1_status.errors, status: :unprocessable_entity
+      render json: @status.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /api/v1/status/1
   def update
-    if @api_v1_status.update(api_v1_status_params)
-      render json: @api_v1_status
+    if @status.update(status_params)
+      render json: @status
     else
-      render json: @api_v1_status.errors, status: :unprocessable_entity
+      render json: @status.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /api/v1/status/1
   def destroy
-    @api_v1_status.destroy
+    @status.destroy
   end
 
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_api_v1_status
-    @api_v1_status = Status.find(params[:id])
+  def set_status
+    @status = Status.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
-  def api_v1_status_params
-    params.fetch(:api_v1_status, {})
+  def status_params
+    params.fetch(:status, {})
   end
 end
