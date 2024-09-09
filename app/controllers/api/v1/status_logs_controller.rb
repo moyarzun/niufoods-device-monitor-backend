@@ -39,11 +39,9 @@ class Api::V1::StatusLogsController < ApplicationController
     @status_log = StatusLog.new(status_log_params)
     @status_log.reported_at = Time.now
 
-    if @status_log.save
-      render json: @status_log, status: :created
-    else
-      render json: @status_log.errors, status: :unprocessable_entity
-    end
+    job_id = LogDeviceStatusWorker.perform_async(@status_log.device_id, @status_log.status_id, @status_log.reported_at)
+
+    render json: { job_id: job_id }
   end
 
   # PATCH/PUT /api/v1/status_logs/1
