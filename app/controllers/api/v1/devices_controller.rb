@@ -47,6 +47,6 @@ class Api::V1::DevicesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def device_params
-    params.fetch(:device, {})
+    params.require(:device).permit(:location_id, :name)
   end
 end

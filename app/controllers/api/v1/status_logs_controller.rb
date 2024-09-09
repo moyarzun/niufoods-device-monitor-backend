@@ -16,9 +16,10 @@ class Api::V1::StatusLogsController < ApplicationController
   # POST /api/v1/status_logs
   def create
     @status_log = StatusLog.new(status_log_params)
+    @status_log.reported_at = Time.now
 
     if @status_log.save
-      render json: @status_log, status: :created, location: @status_log
+      render json: @status_log, status: :created
     else
       render json: @status_log.errors, status: :unprocessable_entity
     end
@@ -47,6 +48,6 @@ class Api::V1::StatusLogsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def status_log_params
-    params.fetch(:status_log, {})
+    params.require(:status_log).permit(:device_id, :status_id)
   end
 end

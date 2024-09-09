@@ -47,6 +47,6 @@ class Api::V1::StatusController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def status_params
-    params.fetch(:status, {})
+    params.require(:status).permit(:name)
   end
 end

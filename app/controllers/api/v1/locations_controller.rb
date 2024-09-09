@@ -26,6 +26,7 @@ class Api::V1::LocationsController < ApplicationController
 
   # PATCH/PUT /api/v1/locations/1
   def update
+    print('UPDATE!!!')
     if @location.update(location_params)
       render json: @location
     else
@@ -47,6 +48,6 @@ class Api::V1::LocationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def location_params
-    params.fetch(:location, {})
+    params.require(:location).permit(:name)
   end
 end
