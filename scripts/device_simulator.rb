@@ -94,7 +94,7 @@ def generate_status_log_data(device_id)
   {
     status_log: {
       device_id: device_id,
-      status_id: rand(1..3) # Genera un número al azar entre 1 y 3
+      status_id: rand(0..3) # Genera un número al azar entre 1 y 3
     }
   }
 end
