@@ -17,7 +17,7 @@ Desarrollado por [Mauricio Oyarzún](https://github.com/moyarzun).
 1. Clonar el repositorio de GitHub:
 
     ```bash
-    git clone https://github.com/tu-usuario/niufoods-device-monitor-backend.git
+    git clone https://github.com/moyarzun/niufoods-device-monitor-backend.git
     cd niufoods-device-monitor-backend
     ```
 
